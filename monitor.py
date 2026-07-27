@@ -6,8 +6,8 @@ import requests
 DONTPAD_API = "https://api.dontpad.com"
 NTFY_URL = "https://ntfy.sh"
 
-DONTPAD_PATH = os.environ.get("DONTPAD_PATH", "/goldFish")
-NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "dontpadgoldFish")
+DONTPAD_PATH = os.environ["DONTPAD_PATH"]
+NTFY_TOPIC = os.environ["NTFY_TOPIC"]
 POLL_INTERVAL = int(os.environ.get("POLL_INTERVAL", "5"))
 
 
