@@ -33,7 +33,8 @@ def send_notification(diff_text):
     if len(diff_text) > 4000:
         diff_text = diff_text[:3950] + "\n... (truncated)"
 
-    requests.post(
+    print(f"Posting notification to {url} ({len(diff_text)} bytes)")
+    resp = requests.post(
         url,
         data=diff_text.encode("utf-8"),
         headers={
@@ -42,6 +43,8 @@ def send_notification(diff_text):
         },
         timeout=10,
     )
+    print(f"ntfy responded: {resp.status_code} {resp.text[:200]}")
+    resp.raise_for_status()
 
 
 def main():
